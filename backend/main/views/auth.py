@@ -62,7 +62,7 @@ def signin(request):
             password = form.cleaned_data['password']
 
             user = authenticate(request, username=username, password=password)
-            login(request, alluser)
+            login(request, user)
             context = {'form': form}
             return redirect('index')
 
