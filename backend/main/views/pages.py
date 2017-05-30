@@ -8,3 +8,7 @@ def index(request):
         return render(request, 'index.html', context)
     else:
         return render(request, 'index.html')
+
+
+def details(request):
+    return render(request, 'details.html')

@@ -1,2 +1,47 @@
 {% extends "layout/base.html" %}
 {% load static %}
+
+
+{% block content %}
+
+  {% include "layout/header.html" %}
+  <!-- spacer section -->
+  <section class="spacer green">
+    <div class="container">
+      <div class="row">
+        <div class="span6 alignright flyLeft">
+          <blockquote class="large">
+            Sharing makes each other more powerful <cite>By Skillup</cite>
+          </blockquote>
+        </div>
+        <div class="span6 aligncenter flyRight">
+          <i class="icon-coffee icon-10x"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end spacer section -->
+
+  {% include "layout/team.html" %}
+
+  {% include "layout/skills.html" %}
+
+  <!-- spacer section -->
+  <section class="spacer bg3">
+    <div class="container">
+      <div class="row">
+        <div class="span12 aligncenter flyLeft">
+          <blockquote class="large">
+            We are an established and trusted web agency with a reputation for commitment and high integrity
+          </blockquote>
+        </div>
+        <div class="span12 aligncenter flyRight">
+          <img src="{% static "img/image1.png" %}" alt="" />
+          <img src="{% static "img/image2.png" %}" alt="" />
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end spacer section -->
+
+{% endblock %}

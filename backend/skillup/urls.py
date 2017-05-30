@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^signin', auth.signin, name='signin'),
     url(r'^signup/', auth.signup, name="signup"),
     url(r'^signout/', auth.signout, name='signout'),
+    url(r'^details/', pages.details, name='details'),
     url(r'^admin/', admin.site.urls),
     url(r'^$', pages.index, name="index"),
 ]
