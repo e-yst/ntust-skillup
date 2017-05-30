@@ -40,6 +40,7 @@ Released   : 20130406
 </head>
 <body>
 
+
 <div class="navbar-wrapper">
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
@@ -66,8 +67,8 @@ Released   : 20130406
 
 				<nav class="pull-right nav-collapse collapse">
 						<ul id="menu-main" class="nav">
-							<li><a title="team" href="login/login.html"><h4 style="color:red";>登入</h4></a></li>
-							<li><a title="team" href="signup/signup.html"><h4 style="color:red";>註冊</h4></a></li>
+							<li><a title="team" href="login/login.html"><h4 style="color:white";>登入</h4></a></li>
+							<li><a title="team" href="signup/signup.html"><h4 style="color:white";>註冊</h4></a></li>
 						</ul>
 				</nav>
 			</div>
@@ -80,10 +81,121 @@ Released   : 20130406
 
 
 
+
 <div id="wrapper">
-	<div class="container">
+   <div class="box">
+       
+   </div>
+    
+
+   
+    
+
+	<div class="container1">
+       
+
+  
+       
+
        <div class="container dynamicTile">
+    
+<div class="container pb-artist-wrap">
+    <div class="row3">
+       
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <h1><strong></strong>使用者</h1>
+                    <small>請不要非法使用本網站</small>
+                </div>
+                <div class="panel-body" style="padding: 0;">
+                    <div>
+                        <img src="http://www.billboard.com/files/media/alan-walker-press-cr-Rikkard-Haggbom-2016-billboard-1548.jpg" class="img-responsive">
+                    </div>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>描述你的課程</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong> 
+                                 <div class="container">
+    <div class="row" id="row_style">
+        <h4 class="text-center">Submit new post</h4>
+        <div class="col-md-4   col-md-offset-4">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Title">
+            </div>
+            <textarea id="editor" cols="30" rows="10">Submit your text post here...</textarea>
+            <br>
+            
+        </div>
+    </div>
+</div>
+
+<style>
+    #row_style {
+        margin-top: 15px;
+    }
+
+    #submit {
+        display: block;
+        margin: auto;
+    }
+</style>
+
+<!-- you need to include the shieldui css and js assets in order for the charts to work -->
+<link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+
+<script>
+    $(function () {
+        $("#editor").shieldEditor({
+            height: 100
+        });
+    })
+</script>
+
+
+
+                                </strong></td>
+                            </tr>   
+                            
+                            
+                           
+                           
+                        </tbody>
+                    </table>
+                </div>
+                <div class="panel-footer">
+                    <button class="btn btn-warning pb-artist-albums"><h3>我想開課</h3></button>    
+                       <p></p>
+                    <button class="btn btn-warning pb-artist-albums"><h3>我想找課</h3></button>
+                    
+                </div>
+            </div>
+       
+    </div>
+</div>
+
+<style>
+    .pb-artist-wrap {
+        padding-top: 30px;
+    }
+
+    .pb-artist-albums {
+        display: block;
+        margin: 0 auto;
+    }
+</style>
+
+
+   
     <div class="row">
+
+   
+
         <div class="col-sm-4 col-xs-6">
             <div id="tile7" class="tile">
                 <div class="carousel slide" data-ride="carousel">
@@ -497,16 +609,20 @@ Released   : 20130406
             $(".item").height($("#tile1").width());
         });
     });
-</script>
-	</div>
-       
+  </script>
+</div>
+
+
+
+    
 
 	
-	<div id="three-column" class="container">
+	<div id="three-column" class="container3">
+
 		<div class="tbox1">
 			<div class="box-style box-style01">
 				<div class="content">
-					<div class="image"><img src="images/img01.jpg" width="300" height="200" alt="" /></div>
+					<div class="image"><img src="images/img01.jpg" width="324" height="200" alt="" /></div>
 					<h2>Fusce ultrices fringilla</h2>
 					<p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. </p>
 					<a href="#" class="button">Learn More</a>
@@ -555,18 +671,11 @@ Released   : 20130406
 				</div>
 			</div>
 		</div>
-		<div class="tbox3">
-			<div class="box-style box-style03">
-				<div class="content">
-					<div class="image"><img src="images/img06.jpg" width="324" height="200" alt="" /></div>
-					<h2>Nulla luctus eleifend </h2>
-					<p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh.</p>
-					<a href="#" class="button">Learn More</a>
-				</div>
-			</div>
-		</div>
+		
 	</div>	
 </div>
+
+
 <div id="footer">
 	<p>© 2013 Untitled Inc. All rights reserved. Lorem ipsum dolor sit amet nullam blandit consequat phasellus etiam lorem. Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.  Photos by <a href="http://fotogrph.com/">Fotogrph</a>.</p>
 </div>
