@@ -5,7 +5,7 @@
 
       <div class="container">
         <!-- Responsive navbar -->
-        <h1 class="brand"><a href="index.html">才藝起</a></h1>
+        <h1 class="brand"><a href="{% url 'index' %}">才藝起</a></h1>
         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
       </a>
 
@@ -25,8 +25,13 @@
 
         <nav class="pull-right nav-collapse collapse">
           <ul id="menu-main" class="nav">
-            <li><a title="team" href="login/login.html"><h4 style="color:white";>登入</h4></a></li>
-            <li><a title="team" href={% url 'signup' %}><h4 style="color:white";>註冊</h4></a></li>
+            {% if username %}
+            <li><h4 title="team" style="color:white";>你好! {{ username }}!</h4></li>
+            <li><a title="team" href="{% url 'signout' %}"><h4 style="color:white";>登出</h4></a></li>
+            {% else %}
+            <li><a title="team" href="{% url 'signin' %}"><h4 style="color:white";>登入</h4></a></li>
+            <li><a title="team" href="{% url 'signup' %}"><h4 style="color:white";>註冊</h4></a></li>
+            {% endif %}
           </ul>
         </nav>
       </div>

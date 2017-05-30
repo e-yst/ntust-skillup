@@ -1,7 +1,8 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.utils import timezone
-from datetime import datetime
+
+from datetime import datetime, timedelta
 from pytz import timezone as tz
 
 
@@ -96,20 +97,22 @@ class SignupForm(forms.Form):
         except User.DoesNotExist:
             pass
 
+        if password != pass_confirm:
+            self.add_error('pass_confirm', '密碼不一致！')
+
         try:
             u = User.objects.get(email=mail)
             if u is not None:
                 raise DuplicatedInfoException("duplicated email!")
         except DuplicatedInfoException:
-            self.add_error('email', 'Email已被使用')
+            self.add_error('mail', 'Email已被使用')
         except User.DoesNotExist:
             pass
 
-        if timezone.localtime(timezone.now()) > timezone.now():
-            self.add_error('dob', '生日不正確')
+        if (timezone.now() - timezone.localtime(dob)).days < timedelta(365*16).days:
+            self.add_error('dob', '使用者需年滿16歲')
 
-        if password != pass_confirm:
-            self.add_error('pass_confirm', '密碼不一致！')
+
 
 
 class DuplicatedInfoException(Exception):
