@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
+from django.utils import timezone
+from datetime import datetime
+from pytz import timezone as tz
 
 
 class SignupForm(forms.Form):
@@ -50,10 +52,11 @@ class SignupForm(forms.Form):
         choices=((0, '男'), (1, '女')),
         label='性別')
 
-    date_of_birth = forms.DateField(
+    dob = forms.CharField(
         label='生日',
         widget=forms.TextInput(attrs={
             'class':'datepicker',
+            'placeholder': '點選此處選擇日期'
         })
     )
 
@@ -76,9 +79,13 @@ class SignupForm(forms.Form):
 
     def clean(self):
         username = self.cleaned_data['name']
-        email = self.cleaned_data['email']
+        mail = self.cleaned_data['mail']
         password = self.cleaned_data['password']
         pass_confirm = self.cleaned_data['pass_confirm']
+        dob = datetime.strptime(
+            self.cleaned_data['dob'],
+            '%Y/%m/%d'
+        ).replace(tzinfo=tz('Asia/Taipei'))
 
         try:
             u = User.objects.get(username=username)
@@ -90,7 +97,7 @@ class SignupForm(forms.Form):
             pass
 
         try:
-            u = User.objects.get(email=email)
+            u = User.objects.get(email=mail)
             if u is not None:
                 raise DuplicatedInfoException("duplicated email!")
         except DuplicatedInfoException:
@@ -98,5 +105,12 @@ class SignupForm(forms.Form):
         except User.DoesNotExist:
             pass
 
-        if password != password2:
-            self.add_error('password2', '密碼不一致！')
+        if timezone.localtime(timezone.now()) > timezone.now():
+            self.add_error('dob', '生日不正確')
+
+        if password != pass_confirm:
+            self.add_error('pass_confirm', '密碼不一致！')
+
+
+class DuplicatedInfoException(Exception):
+    pass

@@ -3,14 +3,16 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Sign Up Form Template | PrepBootstrap</title>
+    <title>才藝起 | 註冊會員</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" type="text/css" href="{% static "signup/bootstrap/css/bootstrap.min.css" %}" />
     <link rel="stylesheet" type="text/css" href="{% static "signup/font-awesome/css/font-awesome.min.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "signup/css/bootstrap-datepicker.min.css" %}" />
 
     <script type="text/javascript" src="{% static "signup/js/jquery-1.10.2.min.js" %}"></script>
     <script type="text/javascript" src="{% static "signup/bootstrap/js/bootstrap.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "signup/js/bootstrap-datepicker.min.js" %}"></script>
 </head>
 <body>
 
@@ -31,6 +33,7 @@
         <div id="panel1" class="panel panel-default">
             <h1>註冊</h1>
             <form method="post">
+              {% csrf_token %}
               <fieldset>
                   <legend><span class="number">1</span>基本資料</legend>
                   {{form.name.label_tag}}
@@ -62,11 +65,10 @@
                     {{form.gender.label_tag}}
                     {{form.gender}}
                   </div>
-
                   <br />
                   <div class="input-group input-group-md">
-                      {{form.date_of_birth.label_tag}}
-                      <div id="dateTimePicker"></div>
+                      {{form.dob.label_tag}}
+                      {{form.dob}}
                   </div>
               </fieldset>
 
@@ -261,14 +263,18 @@
 <script type="text/javascript">
     jQuery(function ($) {
         $(function () {
-            $("#dateTimePicker").shieldDatePicker();
+            $('#{{ form.dob.id_for_label }}').datepicker({
+                format: "yyyy/mm/dd",
+                language: "zh-TW",
+                orientation: "auto right"
+            });
 
             $('#confirmPass').on('keyup', function () {
                 if ($('#confirmPass').val() == $('#pass').val()) {
-                    $('#passwordMatch').html('Passwords match!').css('color', 'green');
+                    $('#passwordMatch').html('密碼正確!').css('color', 'green');
                 }
                 else {
-                    $('#passwordMatch').html('Passwords do not match!').css('color', 'red');
+                    $('#passwordMatch').html('密碼不一致!').css('color', 'red');
                 }
             });
         });
