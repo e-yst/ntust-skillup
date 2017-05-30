@@ -383,6 +383,7 @@ header .logo {
 	text-transform: uppercase;
 	position: relative;
 	margin-bottom: 0px;
+	padding-bottom: 4px;
 	text-align: center;
 	line-height: 1;
 	color:#fff;
