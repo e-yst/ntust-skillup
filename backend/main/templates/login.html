@@ -2,24 +2,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title>才藝起 | 登入</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <title>才藝起 | 登入</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="{% static "signup/bootstrap/css/bootstrap.min.css" %}" />
-    <link rel="stylesheet" type="text/css" href="{% static "signup/font-awesome/css/font-awesome.min.css" %}" />
-    <link rel="stylesheet" type="text/css" href="{% static "signup/css/bootstrap-datepicker.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "signup/bootstrap/css/bootstrap.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "signup/font-awesome/css/font-awesome.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "signup/css/bootstrap-datepicker.min.css" %}" />
 
-    <script type="text/javascript" src="{% static "signup/js/jquery-1.10.2.min.js" %}"></script>
-    <script type="text/javascript" src="{% static "signup/bootstrap/js/bootstrap.min.js" %}"></script>
-    <script type="text/javascript" src="{% static "signup/js/bootstrap-datepicker.min.js" %}"></script>
+  <script type="text/javascript" src="{% static "signup/js/jquery-1.10.2.min.js" %}"></script>
+  <script type="text/javascript" src="{% static "signup/bootstrap/js/bootstrap.min.js" %}"></script>
+  <script type="text/javascript" src="{% static "signup/js/bootstrap-datepicker.min.js" %}"></script>
 </head>
 <body>
 
 <div class="container">
 
 <div class="page-header">
-    <h1><a href={% url 'index' %}>才藝起</a> <small>登入</small></h1>
+  <h1><a href={% url 'index' %}>才藝起</a> <small>登入</small></h1>
 </div>
 
 <!-- Sign Up Form - START -->
@@ -28,206 +28,183 @@
 <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
 
 <div class="container" id="f1">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-        <div id="panel1" class="panel panel-default">
-            <h1>登入</h1>
-            <form method="post">
-              {% csrf_token %}
-              <div class="form-group">
-                {{form.name.label_tag}}
-                {{form.name}}
-                {% if form.name.errors %}
-                <b style="color: red;">{{ form.name.errors }}</b>
-                {% endif %}
-              </div>
-              <div class="form-group">
-                {{form.password.label_tag}}
-                {{form.password}}
-                {% if form.password.errors %}
-                <b style="color: red;">{{ form.password.errors }}</b>
-                {% endif %}
-              </div>
-              <div class="form-group">
-                <a href="{% url 'signup' %}">註冊會員</a>
-              </div>
-
-              <input type="submit" id="b1" value="登入" />
-            </form>
-
-
-            <footer>
-                <p id="footer">Desing provided by <a href="https://www.shieldui.com/">Shield UI</a></p>
-            </footer>
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <div id="panel1" class="panel panel-default">
+      <h1>登入</h1>
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          {{form.name.label_tag}}
+          {{form.name}}
+          {% if form.name.errors %}
+          <b style="color: red;">{{ form.name.errors }}</b>
+          {% endif %}
         </div>
+        <div class="form-group">
+          {{form.password.label_tag}}
+          {{form.password}}
+          {% if form.password.errors %}
+          <b style="color: red;">{{ form.password.errors }}</b>
+          {% endif %}
+        </div>
+        <div class="form-group">
+          <a href="{% url 'signup' %}">註冊會員</a>
+        </div>
+        <input type="submit" id="b1" value="登入" />
+      </form>
+      <footer>
+        <p id="footer">Desing provided by <a href="https://www.shieldui.com/">Shield UI</a></p>
+      </footer>
     </div>
-    <div class="col-md-3"></div>
+  </div>
+  <div class="col-md-3"></div>
 </div>
 
 <style>
-    #f1
-    {
-        font-family: 'Nunito', sans-serif;
-        color: #384047;
-    }
+  #f1 {
+    font-family: 'Nunito', sans-serif;
+    color: #384047;
+  }
 
-    #panel1
-    {
-        padding: 10px 20px;
-        background: #f4f7f8;
-        border-radius: 8px;
-    }
+  #panel1 {
+    padding: 10px 20px;
+    background: #f4f7f8;
+    border-radius: 8px;
+  }
 
-    h1
-    {
-        margin: 0 0 30px 0;
-        text-align: center;
-    }
+  h1 {
+    margin: 0 0 30px 0;
+    text-align: center;
+  }
 
-    #f1 input[type="text"],
-    #f1 input[type="password"],
-    #f1 input[type="date"],
-    #f1 input[type="datetime"],
-    #f1 input[type="email"],
-    #f1 input[type="number"],
-    #f1 input[type="search"],
-    #f1 input[type="tel"],
-    #f1 input[type="time"],
-    #f1 input[type="url"],
-    #f1 textarea,
-    #f1 select
-    {
-        background: rgba(255,255,255,0.1);
+  #f1 input[type="text"],
+  #f1 input[type="password"],
+  #f1 input[type="date"],
+  #f1 input[type="datetime"],
+  #f1 input[type="email"],
+  #f1 input[type="number"],
+  #f1 input[type="search"],
+  #f1 input[type="tel"],
+  #f1 input[type="time"],
+  #f1 input[type="url"],
+  #f1 textarea,
+  #f1 select {
+    background: rgba(255, 255, 255, 0.1);
 
-        font-size: 16px;
-        height: auto;
-        margin: 0;
-        outline: 0;
-        padding: 15px;
-        width: 100%;
-        background-color: #fff;
-        color: #8a97a0;
-        box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
-    }
+    font-size: 16px;
+    height: auto;
+    margin: 0;
+    outline: 0;
+    padding: 15px;
+    width: 100%;
+    background-color: #fff;
+    color: #8a97a0;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  }
 
-    #f1 textarea,
-    #f1 select
-    {
-        border: 1px solid #ccc;
-    }
+  #f1 textarea,
+  #f1 select {
+    border: 1px solid #ccc;
+  }
 
-    #f1 input[type="radio"],
-    #f1 input[type="checkbox"]
-    {
-        margin: 0 4px 8px 0;
-    }
+  #f1 input[type="radio"],
+  #f1 input[type="checkbox"] {
+    margin: 0 4px 8px 0;
+  }
 
-    #f1 .sui-sprite.sui-calendar-icon
-    {
-        margin-top: 14px;
-    }
+  #f1 .sui-sprite.sui-calendar-icon {
+    margin-top: 14px;
+  }
 
-    #b1
-    {
-        padding: 19px 39px 18px 39px;
-        color: #FFF;
-        background-color: #4bc970;
-        font-size: 18px;
-        text-align: center;
-        font-style: normal;
-        border-radius: 5px;
-        width: 100%;
-        border: 1px solid #3ac162;
-        border-width: 1px 1px 3px;
-        box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
-        margin-bottom: 10px;
-    }
+  #b1 {
+    padding: 19px 39px 18px 39px;
+    color: #FFF;
+    background-color: #4bc970;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    border-radius: 5px;
+    width: 100%;
+    border: 1px solid #3ac162;
+    border-width: 1px 1px 3px;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    margin-bottom: 10px;
+  }
 
-    fieldset
-    {
-        margin-bottom: 30px;
-        border: none;
-    }
+  fieldset {
+    margin-bottom: 30px;
+    border: none;
+  }
 
-    legend
-    {
-        font-size: 1.4em;
-        margin-bottom: 10px;
-    }
+  legend {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+  }
 
-    label
-    {
-        display: block;
-        margin-bottom: 8px;
-    }
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
 
-        label.light
-        {
-            font-weight: 300;
-            display: inline;
-        }
+  label.light {
+    font-weight: 300;
+    display: inline;
+  }
 
-    .number
-    {
-        background-color: #5fcf80;
-        color: #fff;
-        height: 30px;
-        width: 30px;
-        display: inline-block;
-        font-size: 0.8em;
-        margin-right: 4px;
-        line-height: 30px;
-        text-align: center;
-        text-shadow: 0 1px 0 rgba(255,255,255,0.2);
-        border-radius: 100%;
-    }
+  .number {
+    background-color: #5fcf80;
+    color: #fff;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    font-size: 0.8em;
+    margin-right: 4px;
+    line-height: 30px;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-radius: 100%;
+  }
 
-    #footer
-    {
-        font-size: 10px;
-        text-align: center;
-        font-weight: bold;
-    }
+  #footer {
+    font-size: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
 
-    #passwordMatch
-    {
-        text-align: center;
-    }
+  #passwordMatch {
+    text-align: center;
+  }
 
-    .input-group-addon
-    {
-        background-color: #e8eeef;
-    }
+  .input-group-addon {
+    background-color: #e8eeef;
+  }
 
-    #or
-    {
-        text-align: center;
-        font-weight: bold;
-    }
+  #or {
+    text-align: center;
+    font-weight: bold;
+  }
 
-    .social
-    {
-        list-style-type: none;
-        background: #29AFBB;
-        height: 52px;
-        border: 2px solid#218C95;
-    }
+  .social {
+    list-style-type: none;
+    background: #29AFBB;
+    height: 52px;
+    border: 2px solid#218C95;
+  }
 
-        .social li
-        {
-            padding-right: 20px;
-            display: inline-block;
-            font-size: 27px;
-            border-bottom: 5px solid#29AFBB;
-            cursor: pointer;
-            margin-top: 5px;
-        }
+  .social li {
+    padding-right: 20px;
+    display: inline-block;
+    font-size: 27px;
+    border-bottom: 5px solid#29AFBB;
+    cursor: pointer;
+    margin-top: 5px;
+  }
 
-            .social li a
-            {
-                color: #fff;
-                vertical-align: -webkit-baseline-middle;
-            }
+  .social li a {
+    color: #fff;
+    vertical-align: -webkit-baseline-middle;
+  }
 </style>
 
 <!-- Sign Up Form - END -->
