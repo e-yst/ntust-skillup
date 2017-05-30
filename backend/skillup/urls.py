@@ -18,10 +18,11 @@ from django.contrib import admin
 from main.views import auth, pages
 
 urlpatterns = [
-    url(r'^signin', auth.signin, name='signin'),
+    url(r'^signin/', auth.signin, name='signin'),
     url(r'^signup/', auth.signup, name="signup"),
     url(r'^signout/', auth.signout, name='signout'),
-    url(r'^details/', pages.details, name='details'),
+    url(r'^categories/(?P<name>.+)/', pages.categories, name='categories'),
+    url(r'^details/(?P<id>\d+)', pages.details, name='details'),
     url(r'^admin/', admin.site.urls),
     url(r'^$', pages.index, name="index"),
 ]

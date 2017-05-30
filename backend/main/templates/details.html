@@ -2,7 +2,37 @@
 {% load static %}
 
 {% block content %}
-<section id="details" class="section">
-  <h1>這裡加東西就變成詳細資料頁面了</h1>
+<section class="section">
+	<div class="container">
+		<h4>{{lesson.name}}</h4>
+		<!-- Three columns -->
+    <div class="row">
+      <p><b>導師: </b>
+      {% for t in lesson.hosted_by.all %}
+      {{t.username}}
+      {% endfor %}
+      </p>
+      <p><b>收費: </b>{{lesson.price}}</p>
+      <p><b>類別: </b>
+      {% for c in lesson.categories.all %}
+      {{c.name}}
+      {% endfor %}
+      </p>
+      <p><b>點擊次數: </b>{{lesson.click_counter}}</p>
+		</div>
+
+		<div class="row">
+      <p><b>發佈日期: </b>{{lesson.posted_on}}</p>
+      <p><b>課程開始日期: </b>{{lesson.start_from}}</p>
+      <p><b>課程結束日期: </b>{{lesson.end_on}}</p>
+      <p><b>報名截止日期: </b>{{lesson.deadline}}</p>
+		</div>
+
+    <div class="row">
+      <p><b>簡介</b></p>
+      <p>{{lesson.description}}</p>
+    </div>
+
+	</div>
 </section>
 {% endblock %}
