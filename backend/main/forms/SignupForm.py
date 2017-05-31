@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.models import User
 from django.utils import timezone
 
+from main.models import Category
+
 from datetime import datetime, timedelta
 from pytz import timezone as tz
 
@@ -73,8 +75,7 @@ class SignupForm(forms.Form):
     interests = forms.MultipleChoiceField(
         label='興趣',
         required=False,
-        choices=(('develop', 'Development'), ('design', 'Design'),
-                 ('business', 'Business')),
+        choices=((c.id, c.name) for c in Category.objects.all()),
         widget=forms.CheckboxSelectMultiple()
     )
 

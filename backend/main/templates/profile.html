@@ -1,0 +1,42 @@
+{% extends "layout/base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="section">
+	<div class="container">
+		<h4>{{u.username}}</h4>
+		<!-- Three columns -->
+    <div class="row">
+      <p><b>性別: </b>
+				{% if u.member.gender %}女{% else %}男{% endif %}
+			</p>
+      <p><b>生日: </b>{{u.member.dob}}</p>
+      <p><b>電郵: </b>{{u.email}}</p>
+      <p><b>興趣: </b>
+				{% for i in u.member.interested_in.all %}
+				{{i.name}}
+				{% endfor %}
+			</p>
+		</div>
+
+		<div class="row">
+      <p><b>帳號建立日期: </b>{{u.date_joined}}</p>
+      <p><b>最後上線日期: </b>{{u.last_login}}</p>
+		</div>
+
+		<div class="row">
+      <p><b>曾經參與課程: </b>
+				{% for l in u.member.lessons_joint.all %}
+				{{l.name}}
+				{% endfor %}
+			</p>
+		</div>
+
+    <div class="row">
+      <p><b>自我介紹</b></p>
+      <p>{{u.user_bio}}</p>
+    </div>
+
+	</div>
+</section>
+{% endblock %}
