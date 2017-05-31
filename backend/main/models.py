@@ -45,7 +45,7 @@ class Member(models.Model):
     lessons_joint = models.ManyToManyField(Lesson)
 
     def __str__(self):
-        return self.user
+        return self.user.username
 
 
 class Wish(models.Model):

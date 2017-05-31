@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 from main.forms import SignupForm, LoginForm
-from main.models import Member
+from main.models import Member, Category
 
 from datetime import datetime
 from pytz import timezone as tz
@@ -23,6 +23,7 @@ def signup(request):
             password = form.cleaned_data['password']
             mail = form.cleaned_data['mail']
             user_bio = form.cleaned_data['user_bio']
+            interested_in = form.cleaned_data['interests']
 
             dob = datetime.strptime(
                 form.cleaned_data['dob'],
@@ -35,14 +36,15 @@ def signup(request):
                                     password=password,
                                     email=mail)
 
-            Member.objects.create(user=u,
-                                  gender=gender,
-                                  dob=dob,
-                                  user_bio=user_bio)
+            m = Member.objects.create(user=u,
+                                      gender=gender,
+                                      dob=dob,
+                                      user_bio=user_bio)
 
-            return redirect('login')
+            m.interested_in.set(Category.objects.filter(id__in=interested_in))
+            m.save()
+            return redirect('signin')
         else:
-            print(form.errors)
             context = {'form': form}
             return render(request, 'signup.html', context)
 
@@ -68,7 +70,7 @@ def signin(request):
 
         else:
             context = {'form': form}
-            return render(request, 'login', context)
+            return render(request, 'login.html', context)
 
 
 @login_required

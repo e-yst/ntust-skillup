@@ -32,13 +32,34 @@
       <div class="row">
         <div class="span12 aligncenter flyLeft">
           <blockquote class="large">
-            We are an established and trusted web agency with a reputation for commitment and high integrity
+            熱門課程
           </blockquote>
         </div>
-        <div class="span12 aligncenter flyRight">
-          <img src="{% static "img/image1.png" %}" alt="" />
-          <img src="{% static "img/image2.png" %}" alt="" />
-        </div>
+      </div>
+
+      <div class="row aligncenter">
+
+        {% for l in lessons %}
+  	    <div class="span4">
+  	      <div class="home-post">
+  	        <div class="post-meta">
+  	          <i class="icon-file icon-2x"></i>
+  	          <span class="date">{{l.posted_on}}</span>
+  	          <span class="tags">
+  	          {% for c in l.categories.all %}
+  	          {{c.name}}
+  	          {% endfor %}
+  	          </span>
+  	        </div>
+  	        <div class="entry-content">
+  	          <h5><strong><a href="{% url 'details' l.id %}">{{l.name}}</a></strong></h5>
+  	          <p>{{l.description}}</p>
+  	          <a href="{% url 'details' l.id %}" class="more">Read more</a>
+  	        </div>
+  	      </div>
+  	    </div>
+  	    {% endfor %}
+
       </div>
     </div>
   </section>
