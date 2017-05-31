@@ -35,6 +35,8 @@ def signup(request):
             u = User.objects.create(username=username,
                                     password=password,
                                     email=mail)
+            u.set_password(password)
+            u.save()
 
             m = Member.objects.create(user=u,
                                       gender=gender,
