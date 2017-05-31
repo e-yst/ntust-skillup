@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.models import User
 from django.utils import timezone
 
+from django.contrib.auth import password_validation as pv
+
 from main.models import Category
 
 from datetime import datetime, timedelta
@@ -97,6 +99,19 @@ class SignupForm(forms.Form):
             self.add_error('name', '使用者名稱已被使用')
         except User.DoesNotExist:
             pass
+
+        try:
+            pv.validate_password(password)
+        except pv.ValidationError as e:
+            for i in e:
+                self.add_error('password', i)
+
+        try:
+            pv.validate_password(pass_confirm)
+        except pv.ValidationError as e:
+            for i in e:
+                self.add_error('pass_confirm', i)
+
 
         if password != pass_confirm:
             self.add_error('pass_confirm', '密碼不一致！')

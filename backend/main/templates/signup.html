@@ -40,31 +40,37 @@
                   <div class="input-group input-group-md">
                       <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-user"></span></span>
                       {{form.name}}
-                      {% if form.name.errors %}
-                      <b style="color: red;">{{ form.name.errors }}</b>
-                      {% endif %}
                   </div>
+                  {% if form.name.errors %}
+                  <b style="color: red;">{{ form.name.errors }}</b>
+                  {% endif %}
                   <br />
                   {{form.mail.label_tag}}
                   <div class="input-group input-group-md">
                       <span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-envelope"></span></span>
                       {{form.mail}}
-                      {% if form.mail.errors %}
-                      <b style="color: red;">{{ form.mail.errors }}</b>
-                      {% endif %}
                   </div>
+                  {% if form.mail.errors %}
+                  <b style="color: red;">{{ form.mail.errors }}</b>
+                  {% endif %}
                   <br />
                   {{form.password.label_tag}}
                   <div class="input-group input-group-md">
                       <span class="input-group-addon" id="sizing-addon3"><span class="glyphicon glyphicon-cog"></span></span>
                       {{form.password}}
                   </div>
+                  {% if form.password.errors %}
+                  <b style="color: red;">{{ form.password.errors }}</b>
+                  {% endif %}
                   <br />
                   {{form.pass_confirm.label_tag}}
                   <div class="input-group input-group-md">
                       <span class="input-group-addon" id="sizing-addon4"><span class="glyphicon glyphicon-cog"></span></span>
                       {{form.pass_confirm}}
                   </div>
+                  {% if form.pass_confirm.errors %}
+                  <b style="color: red;">{{ form.pass_confirm.errors }}</b>
+                  {% endif %}
                   <p id="passwordMatch"></p>
                   <br />
                   <div class="input-group input-group-md">
@@ -75,10 +81,10 @@
                   <div class="input-group input-group-md">
                       {{form.dob.label_tag}}
                       {{form.dob}}
-                      {% if form.dob.errors %}
-                      <b style="color: red;">{{ form.dob.errors }}</b>
-                      {% endif %}
                   </div>
+                  {% if form.dob.errors %}
+                  <b style="color: red;">{{ form.dob.errors }}</b>
+                  {% endif %}
               </fieldset>
 
               <fieldset>
